@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8ed3ee51-d723-44f6-9bda-2b935361a2b5}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{18d6946b-7dcd-47ef-a588-dfd803db67c2}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{687af898-dd56-48ef-b000-ff33487e70f3}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WorkObiekt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SchematA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchematG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkObiekt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Zadania.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SPobiekt.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="SPmain.obj" />
+  </ItemGroup>
+</Project>
