@@ -474,7 +474,7 @@ void test_G(void)
 		if(aK8&&!pK8&&Z8==1){stan8=1;}break;
 	}
 
-
+	//KONIEC MANUALNEGO
 
 	//////////////////////////////////
 	//////////////LCD///////////////////
@@ -492,14 +492,11 @@ void test_G(void)
 		LCD_xy(1,2); LCD_puts(buf);
 		sprintf(buf,"      Menu:     ");
 		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf," M|PAUT|AUT|NOC ");
+		sprintf(buf," M|AUT|NOC ");
 		LCD_xy(1,2); LCD_puts(buf);
 
 		if(aK1&&!pK1&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan1=1;stan2=1;stan3=1;stan4=1;stan5=1;stan6=1;stan7=1;stan8=1;stanLCD=2;tim1=3*sek;}
 		else if(aK1&&!pK1&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
-
-		if(aK2&&!pK2&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanLCD=12;tim1=3*sek;}
-		else if(aK2&&!pK2&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
 
 		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanA2=1;stanLCD=5;tim1=3*sek;}
 		else if(aK3&&!pK3&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
@@ -531,7 +528,7 @@ void test_G(void)
 		break;
 
 	case 4: 
-		if(!tim1&&stan1==1&&stan2==1&&stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1){stanLCD=1;}
+		if(!tim1&&stan1==1&&stan2==1&&stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1){stanLCD=1;} ///////////////////////zmienic
 		else if(stan1!=1||stan2!=1||stan3!=1||stan4!=1||stan5!=1||stan6!=1||stan7!=1||stan8!=1){stanLCD=2;}
 		break;
 
@@ -539,9 +536,6 @@ void test_G(void)
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
-
-
-
 
 		sprintf(buf,"  Tryb: Automat ");
 		LCD_xy(1,1); LCD_puts(buf);
@@ -552,20 +546,6 @@ void test_G(void)
 		if(aK1&&!pK1){liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;licznikaut=0;
 		T2=8*sek;T4=8*sek;T6=8*sek;T8=8*sek; stanLCD=11; timLCD=3*sek;}
 		if(aK2&&pK2){stanLCD=1;stanA2=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;}break;
-
-	case 6:
-
-		sprintf(buf,"  Tryb auto I: ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"Zmien Czas| Wroc",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-		if(aK1&&!pK1){stanLCD=15;} 
-		if(aK2&&!pK2){stanLCD=12;stanA1=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;} //Powrót menu g³ówne
-		break;
 
 	case 7: 
 		sprintf(buf,"                  ");
@@ -632,34 +612,6 @@ void test_G(void)
 		LCD_xy(1,2); LCD_puts(buf); 
 		if(!timLCD){stanLCD=5;}break;
 
-	case 12:
-
-		zliczaj();
-		stanA1=0;stan2A1=0;stan3A1=0;
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf); 	
-		LCD_xy(1,2); LCD_puts(buf); 
-		sprintf(buf,"I  |  II  | III ");
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"IV Wróc");
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		if(aK1&&!pK1&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanA1=1;stanLCD=6;}
-		else if(aK1&&!pK1&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=28;}
-
-		if(aK2&&!pK2&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan2A1=1;stanLCD=17;}
-		else if(aK2&&!pK2&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=28;}
-
-		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan3A1=1;stanLCD=22;}
-		else if(aK3&&!pK3&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=28;}
-		
-		if(aK4&&!pK4&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan4A1=1;stanLCD=29;}
-		else if(aK4&&!pK4&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=28;}
-
-		if(aK5&&!pK5){stanLCD=1;}
-		break;
-
-
 	case 13: 
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
@@ -693,7 +645,7 @@ void test_G(void)
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
-
+		////////////////////////////////////////////////
 		sprintf(buf,"T1| T2 | T3 |T4",(float)Tsw1/sek); //"wroc" dodaj
 		LCD_xy(1,1); LCD_puts(buf);
 
@@ -705,24 +657,6 @@ void test_G(void)
 		if(aK3&&!pK3){stanLCD=20;}
 		if(aK4&&!pK4){stanLCD=21;}
 		if(aK5&&!pK5){stanLCD=12;} 
-		break;
-
-	case 17:
-		sprintf(buf,"                 ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-
-		sprintf(buf,"     Tryb II    ",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"Zmien Czas| Wroc"); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK1&&!pK1){stanLCD=16;} 
-		if(aK2&&!pK2){stanLCD=12;stan2A1=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;} 
-
-		//}
-
 		break;
 
 	case 18: 
@@ -789,82 +723,6 @@ void test_G(void)
 		LCD_xy(1,1); LCD_puts(buf);
 		break;
 
-	case 22: 
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"-|+ Liczbe Aut|  "); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"|Wróc            "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf); 
-		if(aK1&&!pK1){stanLCD=23;} 
-		if(aK2&&!pK2){stanLCD=12;stan3A1=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;} break;
-
-
-	case 23:
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"|Z1-Z2 , Z3-Z4|   ");
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Dalej|Wroc|        ");
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK1&&!pK1){stanLCD=24;} 
-		if(aK2&&!pK2){stanLCD=25;} 
-		if(aK3&&!pK3){stanLCD=22;}  break;
-
-
-	case 24:
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-		if(aK2){if(odliczajZ1Z2<20){odliczajZ1Z2=odliczajZ1Z2+1;}}
-		if(aK1){if(odliczajZ1Z2>1){odliczajZ1Z2=odliczajZ1Z2-1;}}
-		if(aK4){if(odliczajZ3Z4<20){odliczajZ3Z4=odliczajZ3Z4+1;}}
-		if(aK3){if(odliczajZ3Z4>1){odliczajZ3Z4=odliczajZ3Z4-1;}}
-		if(aK5&&!pK5){stanLCD=23;}	
-		sprintf(buf,"-|+|Z1Z2=%d     ",odliczajZ1Z2); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"-|+|Z3Z4=%d|Wróæ",odliczajZ3Z4); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		break;
-
-
-	case 25:
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"|Z5-Z6 Z3-Z4|     ");
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc              ");
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK1&&!pK1){stanLCD=26;} 
-		if(aK2&&!pK2){stanLCD=23;} 
-		break;
-
-
-	case 26:
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-		if(aK2){if(odliczajZ5Z6<20){odliczajZ5Z6=odliczajZ5Z6+1;}}
-		if(aK1){if(odliczajZ5Z6>1){odliczajZ5Z6=odliczajZ5Z6-1;}}
-		if(aK4){if(odliczajZ7Z8<20){odliczajZ7Z8=odliczajZ7Z8+1;}}
-		if(aK3){if(odliczajZ7Z8>1){odliczajZ7Z8=odliczajZ7Z8-1;}}
-		if(aK5&&!pK5){stanLCD=23;}	
-		sprintf(buf,"-|+ Z5Z6=%d     ",odliczajZ5Z6); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"-|+ Z7Z8=%d|Wroc",odliczajZ7Z8); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		break;
-
 	case 27:
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
@@ -894,63 +752,6 @@ void test_G(void)
 		if ((liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0)){stanLCD=12;}
 		break;
 
-
-	case 29: 
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"-|+ Liczbe Aut|  "); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"|Wróc            "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf); 
-		if(aK1&&!pK1){stanLCD=30;} 
-		if(aK2&&!pK2){stanLCD=12;stan4A1=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;} break;
-
-
-	case 30:
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"|Z1-Z5 , Z2-Z6|   ");
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Dalej|Wroc|        ");
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK1&&!pK1){stanLCD=32;} 
-		if(aK2&&!pK2){stanLCD=31;} 
-		if(aK3&&!pK3){stanLCD=29;}  break;
-
-
-	case 31:
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"|Z3-Z7 Z4-Z8|   ");
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc           ");
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK1&&!pK1){stanLCD=33;} 
-		if(aK2&&!pK2){stanLCD=30;} 
-		break;
-
-	case 32: sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-		if(aK2){if(odliczaj4AZ1Z5<20){odliczaj4AZ1Z5=odliczaj4AZ1Z5+1;}}
-		if(aK1){if(odliczaj4AZ1Z5>1){odliczaj4AZ1Z5=odliczaj4AZ1Z5-1;}}
-		if(aK4){if(odliczaj4AZ2Z6<20){odliczaj4AZ2Z6=odliczaj4AZ2Z6+1;}}
-		if(aK3){if(odliczaj4AZ2Z6>1){odliczaj4AZ2Z6=odliczaj4AZ2Z6-1;}}
-		if(aK5&&!pK5){stanLCD=30;}	
-		sprintf(buf,"-|+|Z1Z5=%d     ",odliczaj4AZ1Z5); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"-|+|Z2Z6=%d|Wróæ",odliczaj4AZ2Z6); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		break;
-
 	case 33: sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
@@ -969,322 +770,7 @@ void test_G(void)
 
 	}
 
-
-
-
-	switch(stanA1){
-
-	case 1: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		zliczajA1();
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw1>0){stanA1=2;tim2=Tsw1;}
-		else if(Tsw1==0){stanA1=3;}
-		//if(aK1&&!pK1&&Z1==1){stanA1=1;}break;
-		break;
-
-	case 2: Z1=1;Z2=1;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		zliczajA1();
-
-		if(!tim2){stanA1=3;tim2=5*sek;}break;
-
-	case 3: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		zliczajA1();
-
-
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw2>0){stanA1=4;tim2=Tsw2;}
-
-		//if(!tim2&&Tsw2>0){stanA1=4;tim2=Tsw2;}
-		else if(Tsw2==0){stanA1=5;}
-		break;
-
-	case 4: Z1=0;Z2=0;Z3=1;Z4=1;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		zliczajA1();
-		if(!tim2){stanA1=5;tim2=6*sek;}break;
-
-	case 5: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		zliczajA1();
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw3>0){stanA1=6;tim2=Tsw3;}
-		//if(!tim2&&Tsw3>0){stanA1=6;tim2=Tsw3;}
-		else if(Tsw3==0){stanA1=7;}
-		break;
-
-	case 6: Z1=0;Z2=0;Z3=0;Z4=0;Z5=1;Z6=1;Z7=0;Z8=0;
-		zliczajA1();
-		if(!tim2){stanA1=7;tim2=6*sek;}break;
-
-	case 7: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		zliczajA1();
-
-
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw4>0){stanA1=8;tim2=Tsw4;}
-		//	if(!tim2&&Tsw4>0){stanA1=8;tim2=Tsw4;}
-		else if(Tsw4==0){stanA1=1;}
-		break;
-
-	case 8: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=1;Z8=1;
-
-		zliczajA1();
-		if(!tim2){stanA1=1;tim2=6*sek;
-		}break;
-
-	}
-
-
-	switch(stan2A1){
-
-	case 1: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-	//	if(pX4&&!X4)++liczZ4;
-	//	if(pX8&&!X8)++liczZ8;
-
-	//	if(liczZ4>0){if(pX11&&!X11)--liczZ4;}	
-	//	if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-		zliczajA2();
-
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw2A1>0){stan2A1=2;timA2=Tsw2A1;}
-		else if(Tsw2A1==0){stan2A1=3;}
-		
-
-		break;
-
-	case 2: Z1=1;Z2=0;Z3=0;Z4=0;Z5=1;Z6=0;Z7=0;Z8=0;
-		//if(pX1&&!X1)++liczZ1;
-		//if(pX5&&!X5)++liczZ5;
-
-		//if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
-		//if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-
-			zliczajA2();
-		if(!timA2){stan2A1=3;}break;
-
-	case 3: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-	//	if(pX1&&!X1)++liczZ1;
-		//if(pX5&&!X5)++liczZ5;
-
-	//	if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
-	//	if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-	     zliczajA2();
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw2A2>0){stan2A1=4;timA2=Tsw2A2;}
-		else if(Tsw2A2==0){stan2A1=5;}break;
-	case 4: Z1=0;Z2=1;Z3=0;Z4=0;Z5=0;Z6=1;Z7=0;Z8=0;
-
-	//	if(pX2&&!X2)++liczZ2;		
-		//if(pX6&&!X6)++liczZ6;
-
-	//	if(liczZ2>0){if(pX10&&!X10)--liczZ2;}	
-	//	if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-	zliczajA2();
-		if(!timA2){stan2A1=5;}break;
-
-	case 5: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-	//	if(pX2&&!X2)++liczZ2;	
-	//	if(pX6&&!X6)++liczZ6;
-
-	//	if(liczZ2>0){if(pX10&&!X10)--liczZ2;}
-	//	if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-	zliczajA2();
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw2A3>0){stan2A1=6;timA2=Tsw2A3;}
-		else if(Tsw2A3==0){stan2A1=7;}break;
-	case 6: Z1=0;Z2=0;Z3=1;Z4=0;Z5=0;Z6=0;Z7=1;Z8=0;
-
-	//	if(pX3&&!X3)++liczZ3;		
-	//	if(pX7&&!X7)++liczZ7;
-
-	//	if(liczZ3>0){if(pX12&&!X12)--liczZ3;}	
-	//	if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-	zliczajA2();
-		if(!timA2){stan2A1=7;}break;
-
-	case 7: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-	//	if(pX3&&!X3)++liczZ3;
-	//	if(pX7&&!X7)++liczZ7;
-
-	//	if(liczZ3>0){if(pX12&&!X12)--liczZ3;}	
-	//	if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-	zliczajA2();
-		if(liczZ8==0&&liczZ4==0&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&Tsw2A4>0){stan2A1=8;timA2=Tsw2A4;
-		}
-		else if(Tsw2A4==0){stan2A1=1;}
-		break;
-
-	case 8: Z1=0;Z2=0;Z3=0;Z4=1;Z5=0;Z6=0;Z7=0;Z8=1;
-
-	//	if(pX4&&!X4)++liczZ4;
-	//	if(pX8&&!X8)++liczZ8;
-
-	//	if(liczZ4>0){if(pX11&&!X11)--liczZ4;}	
-	//
-			zliczajA2();
-		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-		if(!timA2){stan2A1=1;
-		}break;
-
-	}
-
-
-	switch(stan3A1){
-
-	case 1: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		if(pX1&&!X1){++liczZ1Z2;++pomocniczalicz;}  //w wypadku gdyby wjecha³ na czeerwonym
-		if(pX2&&!X2){++liczZ1Z2;++pomocniczalicz;}
-
-
-		if(pX7&&!X7){++liczZ7Z8;}
-		if(pX8&&!X8){++liczZ7Z8;}
-
-		if(pX7&&!X7)++liczZ7;
-		if(pX8&&!X8)++liczZ8;
-
-		if(liczZ7Z8>0){if(pX10&&!X10){--liczZ7Z8;}}
-		if(liczZ7Z8>0){if(pX9&&!X9){--liczZ7Z8;}}
-
-
-		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-
-
-		if(liczZ7Z8==0&&liczZ7==0&&liczZ8==0){stan3A1=2;tim3A1=T3A1;}
-
-		break;
-
-	case 2: Z1=1;Z2=1;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		if(pX1&&!X1){++liczZ1Z2;pomocniczalicz=pomocniczalicz+1;}
-		if(pX2&&!X2){++liczZ1Z2;pomocniczalicz=pomocniczalicz+1;}
-
-		if(pX1&&!X1)++liczZ1;
-		if(pX2&&!X2)++liczZ2;
-
-		if(liczZ1Z2>0){if(pX11&&!X11){--liczZ1Z2;--liczZ1;}}
-		if(liczZ1Z2>0){if(pX10&&!X10){--liczZ1Z2;--liczZ2;}}
-
-
-		if(pX13&&!X13||pX15&&!X15){tim3A1=T3A1;}
-
-		if((pomocniczalicz>=odliczajZ1Z2)||!tim3A1){stan3A1=3;pomocniczalicz=0;}break;
-
-	case 3: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		if(pX3&&!X3){++liczZ3Z4;++pomocniczalicz;}
-		if(pX4&&!X4){++liczZ3Z4;++pomocniczalicz;}
-
-		if(pX1&&!X1)++liczZ1;
-		if(pX2&&!X2)++liczZ2;
-
-		if(liczZ1Z2>0){if(pX11&&!X11){--liczZ1Z2;}}
-		if(liczZ1Z2>0){if(pX10&&!X10){--liczZ1Z2;}}
-
-		if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
-		if(liczZ2>0){if(pX10&&!X10)--liczZ2;}
-
-		if(liczZ1Z2==0&&liczZ1==0&&liczZ2==0){stan3A1=4;tim3A1=T3A1;}
-		break;
-
-	case 4: Z1=0;Z2=0;Z3=1;Z4=1;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		if(pX3&&!X3){++liczZ3Z4;pomocniczalicz=pomocniczalicz+1;}
-		if(pX4&&!X4){++liczZ3Z4;pomocniczalicz=pomocniczalicz+1;}
-
-		if(pX3&&!X3)++liczZ3;
-		if(pX4&&!X4)++liczZ4;
-
-
-		if(liczZ3Z4>0){if(pX12&&!X12){--liczZ3Z4;}}
-		if(liczZ3Z4>0){if(pX11&&!X11){--liczZ3Z4;}}
-
-		if(liczZ3>0){if(pX12&&!X12)--liczZ3;}
-		if(liczZ4>0){if(pX11&&!X11)--liczZ4;}
-
-
-		if(pX3&&!X3||pX4&&!X4){tim3A1=T3A1;}
-
-
-		if((pomocniczalicz>=odliczajZ3Z4)||!tim3A1){stan3A1=5;pomocniczalicz=0;}break;
-
-	case 5: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		if(pX5&&!X5){++liczZ5Z6;++pomocniczalicz;}
-		if(pX6&&!X6){++liczZ5Z6;++pomocniczalicz;}
-
-		if(pX3&&!X3)++liczZ3;
-		if(pX4&&!X4)++liczZ4;
-		if(liczZ3Z4>0){if(pX12&&!X12){--liczZ3Z4;}}
-		if(liczZ3Z4>0){if(pX11&&!X11){--liczZ3Z4;}}
-
-		if(liczZ3>0){if(pX12&&!X12)--liczZ3;}
-		if(liczZ4>0){if(pX11&&!X11)--liczZ4;}
-
-		if(liczZ3Z4==0&&liczZ3==0&&liczZ4==0){stan3A1=6;tim3A1=T3A1;}
-		break;
-
-	case 6: Z1=0;Z2=0;Z3=0;Z4=0;Z5=1;Z6=1;Z7=0;Z8=0;
-
-
-		if(pX5&&!X5){++liczZ5Z6;pomocniczalicz=pomocniczalicz+1;}
-		if(pX6&&!X6){++liczZ5Z6;pomocniczalicz=pomocniczalicz+1;}
-
-		if(pX5&&!X5)++liczZ5;
-		if(pX6&&!X6)++liczZ6;
-
-		if(liczZ5Z6>0){if(pX9&&!X9){--liczZ5Z6;}}
-		if(liczZ5Z6>0){if(pX12&&!X12){--liczZ5Z6;}}
-
-		if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-		if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-
-		if(pX9&&!X9||pX12&&!X12){tim3A1=T3A1;}
-
-		if((pomocniczalicz>=odliczajZ5Z6)||!tim3A1){stan3A1=7;pomocniczalicz=0;}break;
-
-	case 7: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-
-		if(pX5&&!X5){++liczZ5Z6;}
-		if(pX6&&!X6){++liczZ5Z6;}			
-
-		if(pX7&&!X7){++liczZ7Z8;++pomocniczalicz;}
-		if(pX8&&!X8){++liczZ7Z8;++pomocniczalicz;}
-
-		if(pX5&&!X5)++liczZ5;
-		if(pX6&&!X6)++liczZ6;
-
-		if(liczZ5Z6>0){if(pX9&&!X9){--liczZ5Z6;}}
-		if(liczZ5Z6>0){if(pX12&&!X12){--liczZ5Z6;}}
-
-
-		if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-		if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-
-
-		if(liczZ5Z6==0&&liczZ5==0&&liczZ6==0){stan3A1=8;tim3A1=T3A1;}
-		break;
-
-	case 8: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=1;Z8=1;
-
-
-		if(pX7&&!X7){++liczZ7Z8;pomocniczalicz=pomocniczalicz+1;}
-		if(pX8&&!X8){++liczZ7Z8;pomocniczalicz=pomocniczalicz+1;}
-
-		if(pX7&&!X7)++liczZ7;
-		if(pX8&&!X8)++liczZ8;
-
-		if(liczZ7Z8>0){if(pX10&&!X10){--liczZ7Z8;}}
-		if(liczZ7Z8>0){if(pX9&&!X9){--liczZ7Z8;}}
-
-
-
-		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-
-		if(pX7&&!X7||pX8&&!X8){tim3A1=T3A1;}
-
-		if((pomocniczalicz>=odliczajZ7Z8)||!tim3A1){stan3A1=1;pomocniczalicz=0;}break;
-
-	}
-
-
+	//automat
 	switch(stanA2){
 	case 1: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
 
@@ -1662,170 +1148,6 @@ void test_G(void)
 
 
 	}
-
-	////////////////Program 4 Tryb 2////////////////////
-	switch(stan4A1){
-
-	case 1: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-		if(pX1&&!X5){++licz4AZ1Z5;++pomocniczalicz4A;}  //w wypadku gdyby wjecha³ na czeerwonym
-		if(pX1&&!X5){++licz4AZ1Z5;++pomocniczalicz4A;}
-
-
-		if(pX4&&!X4){++licz4AZ4Z8;}
-		if(pX8&&!X8){++licz4AZ4Z8;}
-
-		if(pX4&&!X4)++liczZ4;
-		if(pX8&&!X8)++liczZ8;
-
-		if(licz4AZ4Z8>0){if(pX11&&!X11){--licz4AZ4Z8;}}
-		if(licz4AZ4Z8>0){if(pX9&&!X9){--licz4AZ4Z8;}}
-
-
-		if(liczZ4>0){if(pX11&&!X11)--liczZ4;}
-		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-
-
-		if(licz4AZ4Z8==0&&liczZ4==0&&liczZ8==0){stan4A1=2;tim34A1=T34A1;}
-
-		break;
-
-	case 2: Z1=1;Z2=0;Z3=0;Z4=0;Z5=1;Z6=0;Z7=0;Z8=0;
-		if(pX1&&!X1){++licz4AZ1Z5;pomocniczalicz4A=pomocniczalicz4A+1;}
-		if(pX5&&!X5){++licz4AZ1Z5;pomocniczalicz4A=pomocniczalicz4A+1;}
-
-		if(pX1&&!X1)++liczZ1;
-		if(pX5&&!X5)++liczZ5;
-
-		if(licz4AZ1Z5>0){if(pX11&&!X11){--licz4AZ1Z5;--liczZ1;}}
-		if(licz4AZ1Z5>0){if(pX9&&!X9){--licz4AZ1Z5;--liczZ5;}}
-
-
-		if(pX13&&!X13||pX14&&!X14){tim34A1=T34A1;}
-
-		if((pomocniczalicz4A>=odliczaj4AZ1Z5)||!tim34A1){stan4A1=3;pomocniczalicz4A=0;}break;
-
-	case 3: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		if(pX2&&!X2){++licz4AZ2Z6;++pomocniczalicz4A;}
-		if(pX6&&!X6){++licz4AZ2Z6;++pomocniczalicz4A;}
-
-		if(pX1&&!X1)++liczZ1;
-		if(pX5&&!X5)++liczZ5;
-
-		if(licz4AZ1Z5>0){if(pX11&&!X11){--licz4AZ1Z5;}}
-		if(licz4AZ1Z5>0){if(pX9&&!X9){--licz4AZ1Z5;}}
-
-		if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
-		if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-
-		if(licz4AZ1Z5==0&&liczZ1==0&&liczZ5==0){stan4A1=4;tim34A1=T34A1;}
-		break;
-
-	case 4: Z1=0;Z2=1;Z3=0;Z4=0;Z5=0;Z6=1;Z7=0;Z8=0;
-
-		if(pX2&&!X2){++licz4AZ2Z6;pomocniczalicz4A=pomocniczalicz4A+1;}
-		if(pX6&&!X6){++licz4AZ2Z6;pomocniczalicz4A=pomocniczalicz4A+1;}
-
-		if(pX2&&!X2)++liczZ2;
-		if(pX6&&!X6)++liczZ6;
-
-
-		if(licz4AZ2Z6>0){if(pX12&&!X12){--licz4AZ2Z6;}}
-		if(licz4AZ2Z6>0){if(pX10&&!X10){--licz4AZ2Z6;}}
-
-		if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-		if(liczZ2>0){if(pX10&&!X10)--liczZ2;}
-
-
-		if(pX2&&!X2||pX6&&!X6){tim34A1=T34A1;}
-
-
-		if((pomocniczalicz4A>=odliczaj4AZ2Z6)||!tim34A1){stan4A1=5;pomocniczalicz4A=0;}break;
-
-	case 5: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-		if(pX3&&!X3){++licz4AZ3Z7;++pomocniczalicz4A;}
-		if(pX7&&!X7){++licz4AZ3Z7;++pomocniczalicz4A;}
-
-		if(pX2&&!X2)++liczZ2;
-		if(pX6&&!X6)++liczZ6;
-		if(licz4AZ2Z6>0){if(pX12&&!X12){--licz4AZ2Z6;}}
-		if(licz4AZ2Z6>0){if(pX10&&!X10){--licz4AZ2Z6;}}
-
-		if(liczZ2>0){if(pX10&&!X10)--liczZ2;}
-		if(liczZ6>0){if(pX12&&!X12)--liczZ6;}
-
-		if(licz4AZ2Z6==0&&liczZ2==0&&liczZ6==0){stan4A1=6;tim34A1=T34A1;}
-		break;
-
-	case 6: Z1=0;Z2=0;Z3=1;Z4=0;Z5=0;Z6=0;Z7=1;Z8=0;
-
-
-		if(pX3&&!X3){++licz4AZ3Z7;pomocniczalicz4A=pomocniczalicz4A+1;}
-		if(pX7&&!X7){++licz4AZ3Z7;pomocniczalicz4A=pomocniczalicz4A+1;}
-
-		if(pX3&&!X3)++liczZ3;
-		if(pX7&&!X7)++liczZ7;
-
-		if(licz4AZ3Z7>0){if(pX10&&!X10){--licz4AZ3Z7;}}
-		if(licz4AZ3Z7>0){if(pX12&&!X12){--licz4AZ3Z7;}}
-
-		if(liczZ3>0){if(pX12&&!X12)--liczZ3;}
-		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-
-		if(pX3&&!X3||pX7&&!X7){tim34A1=T34A1;}
-
-		if((pomocniczalicz4A>=odliczaj4AZ3Z7)||!tim34A1){stan4A1=7;pomocniczalicz4A=0;}break;
-
-	case 7: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-
-		if(pX3&&!X3){++licz4AZ3Z7;}
-		if(pX7&&!X7){++licz4AZ3Z7;}			
-
-		if(pX4&&!X8){++licz4AZ4Z8;++pomocniczalicz4A;}
-		if(pX4&&!X8){++licz4AZ4Z8;++pomocniczalicz4A;}
-
-		if(pX3&&!X3)++liczZ3;
-		if(pX7&&!X7)++liczZ7;
-
-		if(licz4AZ3Z7>0){if(pX10&&!X10){--licz4AZ3Z7;}}
-		if(licz4AZ3Z7>0){if(pX12&&!X12){--licz4AZ3Z7;}}
-
-
-		if(liczZ3>0){if(pX12&&!X12)--liczZ3;}
-		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-
-
-		if(licz4AZ3Z7==0&&liczZ3==0&&liczZ7==0){stan4A1=8;tim34A1=T34A1;}
-		break;
-
-	case 8: Z1=0;Z2=0;Z3=0;Z4=1;Z5=0;Z6=0;Z7=0;Z8=1;
-
-
-		if(pX4&&!X4){++licz4AZ4Z8;pomocniczalicz4A=pomocniczalicz4A+1;}
-		if(pX8&&!X8){++licz4AZ4Z8;pomocniczalicz4A=pomocniczalicz4A+1;}
-
-		if(pX4&&!X4)++liczZ4;
-		if(pX8&&!X8)++liczZ8;
-
-		if(licz4AZ4Z8>0){if(pX11&&!X11){--licz4AZ4Z8;}}
-		if(licz4AZ4Z8>0){if(pX9&&!X9){--licz4AZ4Z8;}}
-
-
-
-		if(liczZ4>0){if(pX11&&!X11)--liczZ4;}
-		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
-
-		if(pX4&&!X4||pX8&&!X8){tim34A1=T34A1;}
-
-		if((pomocniczalicz4A>=odliczaj4AZ4Z8)||!tim34A1){stan4A1=1;pomocniczalicz4A=0;}break;
-
-	}
-
-
-
-
 	pX1=X1;
 	pX2=X2;
 	pX3=X3;

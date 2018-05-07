@@ -1,5 +1,5 @@
-﻿Build started 01.05.2018 15:43:41.
-     1>Project "C:\Users\Pawel-Notebook\Desktop\Proj\SPobiekt\SPobiekt.vcxproj" on node 2 (build target(s)).
+﻿Build started 07.05.2018 18:07:39.
+     1>Project "C:\Users\Pawel-Notebook\Desktop\ProjektCz2\SPobiekt\SPobiekt.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating ".\Debug\SPobiekt.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -15,8 +15,8 @@
        FinalizeBuildStatus:
          Deleting file ".\Debug\SPobiekt.unsuccessfulbuild".
          Touching ".\Debug\SPobiekt.lastbuildstate".
-     1>Done Building Project "C:\Users\Pawel-Notebook\Desktop\Proj\SPobiekt\SPobiekt.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Pawel-Notebook\Desktop\ProjektCz2\SPobiekt\SPobiekt.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:00.08
