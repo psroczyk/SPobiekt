@@ -8,8 +8,6 @@ double wsp2=0;
 double wsp3=0;
 double wsp4=0;
 
-
-
 int stan1=0; 
 int stan2=0;
 int stan3=0;
@@ -479,7 +477,6 @@ void test_G(void)
 	//////////////////////////////////
 	//////////////LCD///////////////////
 	//////////////////////////////////
-	//////////////////////////////////
 	switch(stanLCD){
 	case 1:
 		stan1=0;stan2=0;stan3=0;stan4=0;stan5=0;stan6=0;stan7=0;stan8=0;
@@ -498,14 +495,12 @@ void test_G(void)
 		if(aK1&&!pK1&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan1=1;stan2=1;stan3=1;stan4=1;stan5=1;stan6=1;stan7=1;stan8=1;stanLCD=2;tim1=3*sek;}
 		else if(aK1&&!pK1&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
 
-		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanA2=1;stanLCD=5;tim1=3*sek;}
+		if(aK2&&!pK2&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanA2=1;stanLCD=5;tim1=3*sek;}
+		else if(aK2&&!pK2&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
+
+		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanNOC=1;stanLCD=13;}
 		else if(aK3&&!pK3&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
-
-		if(aK4&&!pK4&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanNOC=1;stanLCD=13;}
-		else if(aK4&&!pK4&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
 		break;
-
-
 
 	case 2: 
 		sprintf(buf,"Tryb Manual:");
@@ -518,7 +513,6 @@ void test_G(void)
 		if(stan1==1&&stan2==1&&stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1){stanLCD=4;tim1=3*sek;}
 		break;
 
-
 	case 3: 
 
 		if(!tim4){stanLCD=2;tim1=3*sek;}
@@ -528,7 +522,7 @@ void test_G(void)
 		break;
 
 	case 4: 
-		if(!tim1&&stan1==1&&stan2==1&&stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1){stanLCD=1;} ///////////////////////zmienic
+		if(!tim1&&stan1==1&&stan2==1&&stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1){stanLCD=1;}
 		else if(stan1!=1||stan2!=1||stan3!=1||stan4!=1||stan5!=1||stan6!=1||stan7!=1||stan8!=1){stanLCD=2;}
 		break;
 
@@ -547,64 +541,6 @@ void test_G(void)
 		T2=8*sek;T4=8*sek;T6=8*sek;T8=8*sek; stanLCD=11; timLCD=3*sek;}
 		if(aK2&&pK2){stanLCD=1;stanA2=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;}break;
 
-	case 7: 
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+  T1=%5.1fs  ",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"Wroc            "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK2){if(Tsw1<20*sek){Tsw1=Tsw1+0.1*sek;}} //Zmiana czasu w góre T1
-		if(aK1){if(Tsw1>0*sek){Tsw1=Tsw1-0.1*sek;}} //Zmiana czasu w dó³  T2
-		if(aK3&&!pK3){stanLCD=15;}break;
-
-
-	case 8:
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+  T2=%5.1fs  ",(float)Tsw2/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-
-		sprintf(buf,"|Wroc           ",(float)Tsw2/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK2 ){if(Tsw2<20*sek){Tsw2=Tsw2+0.1*sek;}}
-		if(aK1 ){if(Tsw2>0*sek){Tsw2=Tsw2-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=15;}
-
-		break;
-	case 9: 	sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+   T3=%5.1fs ",(float)Tsw3/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-
-		sprintf(buf,"|Wroc           ",(float)Tsw2/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK2 ){if(Tsw3<20*sek){Tsw3=Tsw3+0.1*sek;}}
-		if(aK1 ){if(Tsw3>0*sek){Tsw3=Tsw3-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=15;}
-
-		break;
-	case 10: 
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+  T4=%5.1fs  ",(float)Tsw4/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc           ",(float)Tsw2/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		if(aK2){if(Tsw4<20*sek){Tsw4=Tsw4+0.1*sek;}}
-		if(aK1){if(Tsw4>0*sek){Tsw4=Tsw4-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=15;}
-
-		break;
-
 	case 11:
 		sprintf(buf,"                ");
 		LCD_xy(1,2); LCD_puts(buf); 
@@ -622,106 +558,6 @@ void test_G(void)
 		LCD_xy(1,2); LCD_puts(buf);
 
 		if(aK1&&pK1){stanLCD=1;stanNOC=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;}break;
-
-	case 15: 
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		sprintf(buf,"|T1| T2 | T3 |T4",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-
-		sprintf(buf,"|Wróc     ",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK1&&!pK1){stanLCD=7;} //Zmiana czasu T1
-		if(aK2&&!pK2){stanLCD=8;}
-		if(aK3&&!pK3){stanLCD=9;}
-		if(aK4&&!pK4){stanLCD=10;}
-		if(aK5&&!pK5){stanLCD=12;} 
-		break;
-
-	case 16: 
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-		////////////////////////////////////////////////
-		sprintf(buf,"T1| T2 | T3 |T4",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-
-		sprintf(buf,"|Wroc   ",(float)Tsw1/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK1&&!pK1){stanLCD=18;} //Zmiana czasu T1
-		if(aK2&&!pK2){stanLCD=19;}
-		if(aK3&&!pK3){stanLCD=20;}
-		if(aK4&&!pK4){stanLCD=21;}
-		if(aK5&&!pK5){stanLCD=12;} 
-		break;
-
-	case 18: 
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"|-|+|Wroc    "); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-
-		sprintf(buf,"   T1=%5.1fs   ",(float)Tsw2A1/sek); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK2){if(Tsw2A1<20*sek){Tsw2A1=Tsw2A1+0.1*sek;}} //Zmiana czasu w góre T1
-		if(aK1){if(Tsw2A1>0*sek){Tsw2A1=Tsw2A1-0.1*sek;}} //Zmiana czasu w dó³  T2
-		if(aK3&&!pK3){stanLCD=16;}
-
-		break;
-
-
-	case 19:
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+    T2=%5.1fs  ",(float)Tsw2A2/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc             "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK2){if(Tsw2A2<20*sek){Tsw2A2=Tsw2A2+0.1*sek;}}
-		if(aK1){if(Tsw2A2>0*sek){Tsw2A2=Tsw2A2-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=16;}
-
-		break;
-	case 20: 	
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+   T3=%5.1fs   ",(float)Tsw2A3/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc             "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK2 ){if(Tsw2A3<20*sek){Tsw2A3=Tsw2A3+0.1*sek;}}
-		if(aK1 ){if(Tsw2A3>0*sek){Tsw2A3=Tsw2A3-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=16;}
-
-		break;
-	case 21: 
-		sprintf(buf,"                  ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf); 
-
-		sprintf(buf,"-|+    T4=%5.1fs  ",(float)Tsw2A4/sek); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"|Wroc             "); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if(aK2 ){if(Tsw2A4<20*sek){Tsw2A4=Tsw2A4+0.1*sek;}}
-		if(aK1 ){if(Tsw2A4>0*sek){Tsw2A4=Tsw2A4-0.1*sek;}}
-		if(aK3&&!pK3){stanLCD=16;}
-		LCD_xy(1,1); LCD_puts(buf);
-		break;
 
 	case 27:
 		sprintf(buf,"                ");
@@ -751,23 +587,6 @@ void test_G(void)
 
 		if ((liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0)){stanLCD=12;}
 		break;
-
-	case 33: sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-
-		if(aK2){if(odliczaj4AZ3Z7<20){odliczaj4AZ3Z7=odliczaj4AZ3Z7+1;}}
-		if(aK1){if(odliczaj4AZ3Z7>1){odliczaj4AZ3Z7=odliczaj4AZ3Z7-1;}}
-		if(aK4){if(odliczaj4AZ4Z8<20){odliczaj4AZ4Z8=odliczaj4AZ4Z8+1;}}
-		if(aK3){if(odliczaj4AZ4Z8>1){odliczaj4AZ4Z8=odliczaj4AZ4Z8-1;}}
-		if(aK5&&!pK5){stanLCD=31;}	
-		sprintf(buf,"-|+|Z3Z7=%d     ",odliczaj4AZ3Z7); //"wroc" dodaj
-		LCD_xy(1,1); LCD_puts(buf); 
-		sprintf(buf,"-|+|Z4Z8=%d|Wróæ",odliczaj4AZ4Z8); //"wroc" dodaj
-		LCD_xy(1,2); LCD_puts(buf);
-		break;
-
 	}
 
 	//automat
@@ -783,26 +602,21 @@ void test_G(void)
 		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
 		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
 
-
 		//if(licznikaut>=2){	
-
-		
+	
 		wsp1=liczA2Z1/T2;
 		wsp2=liczA2Z3/T4;
-
-	
-
 		wsp3=(liczA2Z5)/T6;
 		wsp4=(liczA2Z7)/T8;
 
 
-			if(((wsp3)>(wsp4))&&T6>=2*sek&&T6<=12*sek){T6=T6+2*sek;if(T8>0*sek&&T8<15*sek){T8=T8-2*sek;}}
-			if(((wsp3)<(wsp4))&&T8>=4*sek&&T8<=12*sek){T8=T8+2*sek;if(T6>0*sek&&T6<15*sek){T6=T6-2*sek;}}
+		if(((wsp3)>(wsp4))&&T6>=2*sek&&T6<=12*sek){T6=T6+2*sek;if(T8>0*sek&&T8<15*sek){T8=T8-2*sek;}}
+		if(((wsp3)<(wsp4))&&T8>=4*sek&&T8<=12*sek){T8=T8+2*sek;if(T6>0*sek&&T6<15*sek){T6=T6-2*sek;}}
 
-			if(((wsp1)>(wsp2))&&T2>=2*sek&&T2<=12*sek){T2=T2+2*sek;if(T4>0*sek&&T4<15*sek){T4=T4-2*sek;}}
-			if(((wsp1)<(wsp2))&&T4>=2*sek&&T4<=12*sek){T4=T4+2*sek;if(T2>0*sek&&T2<15*sek){T2=T2-2*sek;}}
+		if(((wsp1)>(wsp2))&&T2>=2*sek&&T2<=12*sek){T2=T2+2*sek;if(T4>0*sek&&T4<15*sek){T4=T4-2*sek;}}
+		if(((wsp1)<(wsp2))&&T4>=2*sek&&T4<=12*sek){T4=T4+2*sek;if(T2>0*sek&&T2<15*sek){T2=T2-2*sek;}}
 
-			liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;
+		liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;
 
 			//liczZ3=2;
 			/*if(((liczA2Z5||liczA2Z6)>(liczA2Z7||liczA2Z8))&&T6>=2*sek&&T6<=12*sek){T6=T6+2*sek;if(T8>0*sek&&T8<15*sek){T8=T8-2*sek;}}
@@ -817,21 +631,13 @@ void test_G(void)
 		licznikaut=0;*/
 		//}
 	//	}
-
-
-
 		if(!tim2&&liczZ7==0&&liczZ8==0){stanA2=2;tim2=T2;pomz1=0;tim3=T1;}
-
-
 		break;
 
 	case 2: Z1=1;Z2=1;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
-
-
 		if(pX2&&!X2)++liczA2Z1;
 		if(pX1&&!X1)++liczA2Z1;
 		if(pX13&&!X13||pX15&&!X15){tim3=T1;}
-
 
 		if(pX1&&!X1)++liczZ1;
 		if(pX2&&!X2)++liczZ2;
