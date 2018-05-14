@@ -91,8 +91,6 @@ void zliczaj(){
 	if(liczZ6>0){if(pX12&&!X12)--liczZ6;}	
 	if(liczZ3>0){if(pX12&&!X12)--liczZ3;}	
 	if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
-
-
 }
 
 
@@ -142,10 +140,9 @@ void zliczajA2(){
 void test_G(void)
 {
 	//////////////////////////////////////////////////TRYB MANUALNY ///////////////////////////////////////////////////////////////////
+	//Z1
 	switch(stan1){
 	case 1: Z1=0;
-		//if(liczZ3>0||liczZ4>0||liczZ6>0||liczZ7>0||liczZ8>0){stanLCD=3;}
-		//	if(liczZ3==0&&liczZ4==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanLCD=2;}
 		if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
 		if(pX1&&!X1)++liczZ1;
 		if(!tim4&&liczZ1==0){przyciskniedostepny1=0;}
@@ -156,11 +153,8 @@ void test_G(void)
 				if(przyciskniedostepny3==1||przyciskniedostepny4==1||przyciskniedostepny6==1
 					||przyciskniedostepny7==1||przyciskniedostepny8==1)	{}
 				else {stan1=2;blokada1=0;przyciskniedostepny1=1;}}
-		//else if((aK1&&!pK1&& (liczZ3>0||liczZ4>0||liczZ6>0||liczZ7>0||liczZ8>0))){stanLCD=3;}
-		//	if(blokada==1){if(!tim4){stan1=2;}}
 
 		if(tim4){}//Aby podczas odliczania czasy u¿ytkownik nie zmienia³ ustawien
-
 		/////Ró¿ne sekwenje które s¹ zamykane gdy koliduje z innymi kierunkami////////
 		else if((aK1&&!pK1&&((liczZ3>0&&liczZ4>0)&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;stan4=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}//warunek 
 		else if((aK1&&!pK1&&((liczZ5>0&&liczZ6>0)&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;stan4=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
@@ -168,10 +162,8 @@ void test_G(void)
 		else if((aK1&&!pK1&&((liczZ4>0&&liczZ8>0)&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan4=1;stan8=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
 		else if((aK1&&!pK1&&((liczZ2>0&&liczZ6>0)&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
 		else if((aK1&&!pK1&&((liczZ7>0&&liczZ3>0)&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan7=1;stan3=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
-
 		else if((aK1&&!pK1&&(liczZ3>0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
 		else if((aK1&&!pK1&&(liczZ3==0&&liczZ4>0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan4=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
-		//	else if((aK1&&!pK1&&(liczZ3==0&&liczZ4==0&&liczZ5>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=4*sek;blokada1=1;}
 		else if((aK1&&!pK1&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
 		else if((aK1&&!pK1&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7>01&&liczZ8==0))){stanLCD=3;stan7=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
 		else if((aK1&&!pK1&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=5*sek;blokada1=1;przyciskniedostepny1=1;}
@@ -182,18 +174,16 @@ void test_G(void)
 	case 2: Z1=1;
 		if(pX1&&!X1)++liczZ1;
 		if(liczZ1>0){if(pX11&&!X11)--liczZ1;}
-		if(aK1&&!pK1&&Z1==1){stan1=1;}break;
+		if(aK1&&!pK1&&Z1==1){stan1=1;}
+		break;
 
 	}
-
 
 	////////////Z2///////////
 	switch(stan2){
 	case 1: Z2=0;
 		if(liczZ2>0){if(pX10&&!X10)--liczZ2;}
 		if(pX2&&!X2)++liczZ2;
-		//if(liczZ3>0){stanLCD=3;}
-		//if(liczZ3==0){ stanLCD=2;}
 		if(!tim4&&liczZ2==0){przyciskniedostepny2=0;}
 		if((aK2&&!pK2&&Z2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ7==0&&liczZ8==0)&&
 			(((stan1==1||stan1==2)&&(stan3==1&&stan4==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1))||
@@ -210,12 +200,9 @@ void test_G(void)
 		else if((aK2&&!pK2&&((liczZ3>0&&liczZ7>0)&&liczZ1==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan3=1;stan7=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
 		else if((aK2&&!pK2&&((liczZ8>0&&liczZ4>0)&&liczZ1==0&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan8=1;stan4=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
 		else if((aK2&&!pK2&&((liczZ1>0&&liczZ5>0)&&liczZ3==0&&liczZ4==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
-
-
 		else if((aK2&&!pK2&&(liczZ3>0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
 		else if((aK2&&!pK2&&(liczZ3==0&&liczZ4>0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan4=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
-		else if((aK2&&!pK2&&(liczZ3==0&&liczZ4==0&&liczZ5>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
-		//	else if((aK2&&!pK2&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=4*sek;blokada2=1;przyciskniedostepny=1;}
+		else if((aK2&&!pK2&&(liczZ3==0&&liczZ4==0&&liczZ5>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}	
 		else if((aK2&&!pK2&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7>0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
 		else if((aK2&&!pK2&&(liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=4*sek;blokada2=1;przyciskniedostepny2=1;}
 
@@ -231,15 +218,12 @@ void test_G(void)
 
 	}
 
-
 	///////Z3///////////
 	switch(stan3){
 	case 1: Z3=0;
 		if(liczZ3>0){if(pX12&&!X12)--liczZ3;}
 		if(pX3&&!X3)++liczZ3;
 		if(!tim4&&liczZ3==0){przyciskniedostepny3=0;}
-		//if(liczZ1>0||liczZ2>0||liczZ5>0||liczZ6>0||liczZ8>0){stanLCD=3;}
-		//	if(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ8==0){ stanLCD=2;}
 		if((aK3&&!pK3&&Z3==0&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ8==0)&&
 			(((stan4==1||stan4==2)&&
 			(stan1==1&&stan2==1&&stan5==1&&stan6==1&&stan7==1&&stan8==1))||
@@ -256,13 +240,10 @@ void test_G(void)
 		else if((aK3&&!pK3&&((liczZ5>0&&liczZ1>0)&&liczZ2==0&&liczZ4==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;stan5=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
 		else if((aK3&&!pK3&&((liczZ8>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan8=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
 		else if((aK3&&!pK3&&((liczZ2>0&&liczZ6>0)&&liczZ1==0&&liczZ4==0&&liczZ5==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;stan6=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
-
-
 		else if((aK3&&!pK3&&(liczZ1>0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
 		else if((aK3&&!pK3&&(liczZ1==0&&liczZ2>0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
 		else if((aK3&&!pK3&&(liczZ1==0&&liczZ2==0&&liczZ5>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
-		else if((aK3&&!pK3&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
-		//else if((aK3&&!pK3&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7>0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=4*sek;blokada3=1;}
+		else if((aK3&&!pK3&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}	
 		else if((aK3&&!pK3&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=5*sek;blokada3=1;przyciskniedostepny3=1;}
 
 		if((blokada3==1)){if(!tim4){stan3=2;blokada3=0;timPom=5*sek;}}
@@ -290,7 +271,6 @@ void test_G(void)
 				||przyciskniedostepny6==1||przyciskniedostepny7==1)	{}
 
 			else {stan4=2;blokada4=0;przyciskniedostepny4=1;}}
-		//	else if(aK4&&!pK4&&(liczZ1>0||liczZ2>0||liczZ5>0||liczZ6>0||liczZ7==0)){stanLCD=3;}
 		if(tim4){}
 		else if((aK4&&!pK4&&((liczZ1>0&&liczZ2>0)&&liczZ3==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;stan2=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&((liczZ5>0&&liczZ6>0)&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;stan6=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
@@ -298,14 +278,11 @@ void test_G(void)
 		else if((aK4&&!pK4&&((liczZ1>0&&liczZ5>0)&&liczZ2==0&&liczZ3==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;stan5=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&((liczZ3>0&&liczZ7>0)&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&((liczZ2>0&&liczZ6>0)&&liczZ1==0&&liczZ3==0&&liczZ5==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;stan6=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
-
-
 		else if((aK4&&!pK4&&(liczZ1>0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&(liczZ1==0&&liczZ2>0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&(liczZ1==0&&liczZ2==0&&liczZ5>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan5=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
 		else if((aK4&&!pK4&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7>0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=5*sek;blokada4=1;przyciskniedostepny4=1;}
-		//else if((aK4&&!pK4&&(liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=4*sek;blokada4=1;}
 
 		if(blokada4==1){if(!tim4){stan4=2;blokada4=0;timPom=5*sek;}}
 		break;
@@ -331,7 +308,6 @@ void test_G(void)
 				||przyciskniedostepny7==1||przyciskniedostepny8==1)	{}
 
 			else {stan5=2;blokada5==0;przyciskniedostepny5=1;}}
-		//else if(aK5&&!pK5&&(liczZ2>0||liczZ3>0||liczZ4>0||liczZ7>0||liczZ8>0)){stanLCD=3;}
 		if(tim4){}
 		else if((aK5&&!pK5&&((liczZ1>0&&liczZ2>0)&&liczZ3==0&&liczZ6==0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&((liczZ3>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;stan4=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
@@ -339,11 +315,8 @@ void test_G(void)
 		else if((aK5&&!pK5&&((liczZ7>0&&liczZ3>0)&&liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan7=1;stan3=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&((liczZ4>0&&liczZ8>0)&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan4=1;stan8=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&((liczZ6>0&&liczZ2>0)&&liczZ1==0&&liczZ3==0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
-
-		//else if((aK5&&!pK5&&(liczZ1>0&&liczZ2==0&&liczZ3==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=4*sek;blokada5=1;}
 		else if((aK5&&!pK5&&(liczZ1==0&&liczZ2>0&&liczZ3==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&(liczZ1==0&&liczZ2==0&&liczZ3>0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
-		///////		else if((aK5&&!pK5&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ6>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ6==0&&liczZ7>0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 		else if((aK5&&!pK5&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ6==0&&liczZ7==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=5*sek;blokada5=1;przyciskniedostepny5=1;}
 
@@ -352,7 +325,6 @@ void test_G(void)
 	case 2: Z5=1;
 		if(pX5&&!X5)++liczZ5;
 		if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
-		// if(liczZ5>0){if(pX9&&!X9)--liczZ5;}
 		if(aK5&&!pK5&&Z5==1){stan5=1;}break;
 
 	}
@@ -371,7 +343,6 @@ void test_G(void)
 					||przyciskniedostepny7==1||przyciskniedostepny8==1)	{}			
 				else {stan6=2;blokada6=0;przyciskniedostepny6=1;}
 		}
-		//	else if(aK6&&!pK6&&(liczZ1>0||liczZ3>0||liczZ4>0||liczZ7>0||liczZ8>0)){stanLCD=3;}
 		if(tim4){}
 		else if((aK6&&!pK6&&((liczZ3>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;stan4=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
 		else if((aK6&&!pK6&&((liczZ1>0&&liczZ2>0)&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
@@ -379,10 +350,7 @@ void test_G(void)
 		else if((aK6&&!pK6&&((liczZ1>0&&liczZ5>0)&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
 		else if((aK6&&!pK6&&((liczZ8>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ7==0))){stanLCD=3;stan8=1;stan4=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
 		else if((aK6&&!pK6&&((liczZ3>0&&liczZ7>0)&&liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ8==0))){stanLCD=3;stan3=1;stan7=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
-
-
 		else if((aK6&&!pK6&&(liczZ1>0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
-		//else if((aK6&&!pK6&&(liczZ1==0&&liczZ2>0&&liczZ3==0&&liczZ6==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=4*sek;blokada6=1;}
 		else if((aK6&&!pK6&&(liczZ1==0&&liczZ2==0&&liczZ3>0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
 		else if((aK6&&!pK6&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4>0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan4=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
 		else if((aK6&&!pK6&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ7>0&&liczZ8==0))){stanLCD=3;stan7=1;tim4=5*sek;blokada6=1;przyciskniedostepny6=1;}
@@ -412,7 +380,6 @@ void test_G(void)
 
 				else {stan7=2;blokada7=0;przyciskniedostepny7=1;}
 		}
-		//else if(aK7&&!pK7&&(Z7>0||liczZ1>0||liczZ2>0||liczZ4>0||liczZ5>0||liczZ6>0)){stanLCD=3;}
 		if(tim4){}
 		else if((aK7&&!pK7&&((liczZ1>0&&liczZ2>0)&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan1=1;stan2=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
 		else if((aK7&&!pK7&&((liczZ3>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan4=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
@@ -422,10 +389,8 @@ void test_G(void)
 		else if((aK7&&!pK7&&((liczZ8>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ5==0&&liczZ6==0))){stanLCD=3;stan4=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
 		else if((aK7&&!pK7&&(liczZ1>0&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan1=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
 		else if((aK7&&!pK7&&(liczZ1==0&&liczZ2>0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan2=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
-		//else if((aK7&&!pK7&&(liczZ1==0&&liczZ2==0&&liczZ3>0&&liczZ4==0&&liczZ7==0&&liczZ8==0))){stanLCD=3;stan3=1;tim4=4*sek;blokada6=1;}
 		else if((aK7&&!pK7&&(liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ5>0&&liczZ6==0&&liczZ8==0))){stanLCD=3;stan4=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
 		else if((aK7&&!pK7&&(liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ6>0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
-		//////else if((aK7&&!pK7&&(liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=5*sek;blokada7=1;przyciskniedostepny7=1;}
 		if(blokada7==1){if(!tim4){stan7=2;blokada7=0;timPom=5*sek;}}
 		break;
 	case 2: Z7=1;
@@ -448,7 +413,6 @@ void test_G(void)
 					||przyciskniedostepny5==1||przyciskniedostepny6==1)	{}		
 				else {stan8=2;blokada8=0;przyciskniedostepny8=1;}
 		}
-		//else if(aK8&&!pK8&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ5>0||liczZ6>0)){stanLCD=3;}
 		if(tim4){}
 		else if((aK8&&!pK8&&((liczZ1>0&&liczZ2>0)&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan1=1;stan2=1;tim4=5*sek;blokada8=1;przyciskniedostepny8=1;}
 		else if((aK8&&!pK8&&((liczZ3>0&&liczZ4>0)&&liczZ1==0&&liczZ2==0&&liczZ5==0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan3=1;tim4=5*sek;blokada8=1;przyciskniedostepny8=1;}
@@ -461,7 +425,6 @@ void test_G(void)
 		else if((aK8&&!pK8&&(liczZ1==0&&liczZ2==0&&liczZ3>0&&liczZ4==0&&liczZ7==0&&liczZ7==0))){stanLCD=3;stan3=1;tim4=5*sek;blokada8=1;przyciskniedostepny8=1;}
 		else if((aK8&&!pK8&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5>0&&liczZ6==0&&liczZ7==0))){stanLCD=3;stan5=1;tim4=5*sek;blokada8=1;przyciskniedostepny8=1;}
 		else if((aK8&&!pK8&&(liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6>0&&liczZ8==0))){stanLCD=3;stan6=1;tim4=5*sek;blokada8=1;przyciskniedostepny8=1;}
-		//else if((aK8&&!pK8&&(liczZ1==0&&liczZ2==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ8>0))){stanLCD=3;stan8=1;tim4=4*sek;blokada7=1;}
 		if(blokada8==1){if(!tim4){stan8=2;blokada8=0;timPom=5*sek;}}
 
 
@@ -481,31 +444,27 @@ void test_G(void)
 	case 1:
 		stan1=0;stan2=0;stan3=0;stan4=0;stan5=0;stan6=0;stan7=0;stan8=0;
 		zliczaj();
-
-		//stanA1=0;stanA2=0;stanNOC=0;stan2A1=0;stan3A1;
-
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
 		sprintf(buf,"      Menu:     ");
 		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf," M|AUT|NOC ");
+		sprintf(buf,"MAN|AUT|NOC ");
 		LCD_xy(1,2); LCD_puts(buf);
 
 		if(aK1&&!pK1&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stan1=1;stan2=1;stan3=1;stan4=1;stan5=1;stan6=1;stan7=1;stan8=1;stanLCD=2;tim1=3*sek;}
-		else if(aK1&&!pK1&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
+		else if(aK1&&!pK1&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=8;}
 
 		if(aK2&&!pK2&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanA2=1;stanLCD=5;tim1=3*sek;}
-		else if(aK2&&!pK2&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
+		else if(aK2&&!pK2&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=8;}
 
-		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanNOC=1;stanLCD=13;}
-		else if(aK3&&!pK3&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=27;}
+		if(aK3&&!pK3&&liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanNOC=1;stanLCD=7;}
+		else if(aK3&&!pK3&&(liczZ1>0||liczZ2>0||liczZ3>0||liczZ4>0||liczZ5>0||liczZ6>0||liczZ7>0||liczZ8>0)){stanLCD=8;}
 		break;
 
 	case 2: 
 		sprintf(buf,"Tryb Manual:");
 		LCD_xy(1,1); LCD_puts(buf);
-		// {
 		stanLCD=stanLCD;
 		sprintf(buf,"1|2|3|4|5|6|7|8");
 		LCD_xy(1,2); LCD_puts(buf);
@@ -538,17 +497,17 @@ void test_G(void)
 		
 
 		if(aK1&&!pK1){liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;licznikaut=0;
-		T2=8*sek;T4=8*sek;T6=8*sek;T8=8*sek; stanLCD=11; timLCD=3*sek;}
+		T2=8*sek;T4=8*sek;T6=8*sek;T8=8*sek; stanLCD=6; timLCD=3*sek;}
 		if(aK2&&pK2){stanLCD=1;stanA2=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;}break;
 
-	case 11:
+	case 6:
 		sprintf(buf,"                ");
 		LCD_xy(1,2); LCD_puts(buf); 
 		sprintf(buf,"  Zresetowano!!!");
 		LCD_xy(1,2); LCD_puts(buf); 
 		if(!timLCD){stanLCD=5;}break;
 
-	case 13: 
+	case 7: 
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
@@ -559,7 +518,7 @@ void test_G(void)
 
 		if(aK1&&pK1){stanLCD=1;stanNOC=0;Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;}break;
 
-	case 27:
+	case 8:
 		sprintf(buf,"                ");
 		LCD_xy(1,1); LCD_puts(buf);
 		LCD_xy(1,2); LCD_puts(buf);
@@ -571,21 +530,6 @@ void test_G(void)
 		LCD_xy(1,2); LCD_puts(buf);
 
 		if (liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0){stanLCD=1;}
-		break;
-
-
-	case 28:
-		sprintf(buf,"                ");
-		LCD_xy(1,1); LCD_puts(buf);
-		LCD_xy(1,2); LCD_puts(buf);
-
-		zliczaj();
-		sprintf(buf,"Error           ");
-		LCD_xy(1,1); LCD_puts(buf);
-		sprintf(buf,"Pojazd na drodze");
-		LCD_xy(1,2); LCD_puts(buf);
-
-		if ((liczZ1==0&&liczZ2==0&&liczZ3==0&&liczZ4==0&&liczZ5==0&&liczZ6==0&&liczZ7==0&&liczZ8==0)){stanLCD=12;}
 		break;
 	}
 
@@ -602,13 +546,10 @@ void test_G(void)
 		if(liczZ7>0){if(pX10&&!X10)--liczZ7;}
 		if(liczZ8>0){if(pX9&&!X9)--liczZ8;}
 
-		//if(licznikaut>=2){	
-	
 		wsp1=liczA2Z1/T2;
 		wsp2=liczA2Z3/T4;
 		wsp3=(liczA2Z5)/T6;
 		wsp4=(liczA2Z7)/T8;
-
 
 		if(((wsp3)>(wsp4))&&T6>=2*sek&&T6<=12*sek){T6=T6+2*sek;if(T8>0*sek&&T8<15*sek){T8=T8-2*sek;}}
 		if(((wsp3)<(wsp4))&&T8>=4*sek&&T8<=12*sek){T8=T8+2*sek;if(T6>0*sek&&T6<15*sek){T6=T6-2*sek;}}
@@ -618,19 +559,6 @@ void test_G(void)
 
 		liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;
 
-			//liczZ3=2;
-			/*if(((liczA2Z5||liczA2Z6)>(liczA2Z7||liczA2Z8))&&T6>=2*sek&&T6<=12*sek){T6=T6+2*sek;if(T8>0*sek&&T8<15*sek){T8=T8-2*sek;}}
-			if(((liczA2Z5||liczA2Z6)<(liczA2Z7||liczA2Z8))&&T8>=4*sek&&T8<=12*sek){T8=T8+2*sek;if(T6>0*sek&&T6<15*sek){T6=T6-2*sek;}}
-
-			if(((liczA2Z1)>(liczA2Z3))&&T2>=2*sek&&T2<=12*sek){T2=T2+2*sek;if(T4>0*sek&&T4<15*sek){T4=T4-2*sek;}}
-			if(((liczA2Z1)<(liczA2Z3))&&T4>=2*sek&&T4<=12*sek){T4=T4+2*sek;if(T2>0*sek&&T2<15*sek){T2=T2-2*sek;}}*/
-			//licznikaut=0;		liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0;		
-		//}
-		/*if(licznikaut2>=5){	if(X13==1&&X15==1&&X14==1&&X16==1)
-		{ liczA2Z1=0;liczA2Z2=0;liczA2Z3=0;liczA2Z4=0;liczA2Z5=0;liczA2Z6=0;liczA2Z7=0;liczA2Z8=0 ;T2=10*sek; T4=10*sek;T6=10*sek;T8=10*sek; licznikaut2=0;
-		licznikaut=0;*/
-		//}
-	//	}
 		if(!tim2&&liczZ7==0&&liczZ8==0){stanA2=2;tim2=T2;pomz1=0;tim3=T1;}
 		break;
 
@@ -807,8 +735,6 @@ void test_G(void)
 		else if(!timNOC&&(X7==1||X8==1)){stanNOC=7;}
 		else if(!timNOC&&(X1==1||X2==1)){stanNOC=1;}
 
-
-
 		break;
 
 	case 3: Z1=0;Z2=0;Z3=0;Z4=0;Z5=0;Z6=0;Z7=0;Z8=0;
@@ -951,8 +877,6 @@ void test_G(void)
 		else if(!timNOC&&(X3==1||X4==1)){stanNOC=3;}
 		else if(!timNOC&&(X5==1||X6==1)){stanNOC=5;}
 		break;
-
-
 	}
 	pX1=X1;
 	pX2=X2;
