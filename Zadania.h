@@ -392,9 +392,9 @@ void H(void)
 		LCD_xy(1, 1); LCD_puts(buf);
 		LCD_xy(1, 2); LCD_puts(buf);
 
-		sprintf(buf, "  Tryb: Automat ");
+		sprintf(buf, "  Tryb Automat: ");
 		LCD_xy(1, 1); LCD_puts(buf);
-		sprintf(buf, "|Reset|Wróæ|    "); //"wroc" dodaj
+		sprintf(buf, " Reset|Wróæ     ");
 		LCD_xy(1, 2); LCD_puts(buf);
 
 
