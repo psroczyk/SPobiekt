@@ -43,7 +43,7 @@ void H(void)
 			}
 			else { stan1 = 2; blokada1 = 0; przyciskniedostepny1 = 1; }
 		}
-
+		/////////
 		if (tim4) {}//Aby podczas odliczania czasy u¿ytkownik nie zmienia³ ustawien
 					/////Ró¿ne sekwenje które s¹ zamykane gdy koliduje z innymi kierunkami////////
 		else if ((aK1 && !pK1 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ2 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan3 = 1; stan4 = 1; tim4 = 5 * sek; blokada1 = 1; przyciskniedostepny1 = 1; }//warunek 
@@ -64,6 +64,7 @@ void H(void)
 	case 2: Z1 = 1;
 		if (pX1 && !X1)++liczZ1;
 		if (liczZ1 > 0) { if (pX11 && !X11)--liczZ1; }
+		/////////
 		if (aK1 && !pK1&&Z1 == 1) { stan1 = 1; }
 		break;
 
@@ -84,7 +85,7 @@ void H(void)
 			}
 			else { stan2 = 2; blokada2 = 0; przyciskniedostepny2 = 1; }
 		}
-
+		//////////////
 		if (tim4) {}
 		else if ((aK2 && !pK2 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ1 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan3 = 1; stan4 = 1; tim4 = 4 * sek; blokada2 = 1; przyciskniedostepny2 = 1; }
 		else if ((aK2 && !pK2 && ((liczZ5 > 0 && liczZ6 > 0) && liczZ1 == 0 && liczZ3 == 0 && liczZ4 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan5 = 1; stan4 = 1; tim4 = 4 * sek; blokada2 = 1; przyciskniedostepny2 = 1; }
@@ -126,6 +127,7 @@ void H(void)
 			}
 			else { stan3 = 2; blokada3 = 0; przyciskniedostepny3 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK3 && !pK3 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ4 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan1 = 1; stan2 = 1; tim4 = 5 * sek; blokada3 = 1; przyciskniedostepny3 = 1; }
 		else if ((aK3 && !pK3 && ((liczZ5 > 0 && liczZ6 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ4 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan5 = 1; stan6 = 1; tim4 = 5 * sek; blokada3 = 1; przyciskniedostepny3 = 1; }
@@ -166,6 +168,7 @@ void H(void)
 
 			else { stan4 = 2; blokada4 = 0; przyciskniedostepny4 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK4 && !pK4 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ3 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan1 = 1; stan2 = 1; tim4 = 5 * sek; blokada4 = 1; przyciskniedostepny4 = 1; }
 		else if ((aK4 && !pK4 && ((liczZ5 > 0 && liczZ6 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ3 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan5 = 1; stan6 = 1; tim4 = 5 * sek; blokada4 = 1; przyciskniedostepny4 = 1; }
@@ -205,6 +208,7 @@ void H(void)
 
 			else { stan5 = 2; blokada5 == 0; przyciskniedostepny5 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK5 && !pK5 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ3 == 0 && liczZ6 == 0 && liczZ4 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan2 = 1; tim4 = 5 * sek; blokada5 = 1; przyciskniedostepny5 = 1; }
 		else if ((aK5 && !pK5 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ6 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan3 = 1; stan4 = 1; tim4 = 5 * sek; blokada5 = 1; przyciskniedostepny5 = 1; }
@@ -241,6 +245,7 @@ void H(void)
 			}
 			else { stan6 = 2; blokada6 = 0; przyciskniedostepny6 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK6 && !pK6 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ5 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan3 = 1; stan4 = 1; tim4 = 5 * sek; blokada6 = 1; przyciskniedostepny6 = 1; }
 		else if ((aK6 && !pK6 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ3 == 0 && liczZ4 == 0 && liczZ5 == 0 && liczZ7 == 0 && liczZ8 == 0))) { stanLCD = 3; stan1 = 1; tim4 = 5 * sek; blokada6 = 1; przyciskniedostepny6 = 1; }
@@ -279,6 +284,7 @@ void H(void)
 
 			else { stan7 = 2; blokada7 = 0; przyciskniedostepny7 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK7 && !pK7 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ3 == 0 && liczZ4 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ8 == 0))) { stanLCD = 3; stan1 = 1; stan2 = 1; tim4 = 5 * sek; blokada7 = 1; przyciskniedostepny7 = 1; }
 		else if ((aK7 && !pK7 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ8 == 0))) { stanLCD = 3; stan4 = 1; tim4 = 5 * sek; blokada7 = 1; przyciskniedostepny7 = 1; }
@@ -313,6 +319,7 @@ void H(void)
 			}
 			else { stan8 = 2; blokada8 = 0; przyciskniedostepny8 = 1; }
 		}
+		////////////
 		if (tim4) {}
 		else if ((aK8 && !pK8 && ((liczZ1 > 0 && liczZ2 > 0) && liczZ3 == 0 && liczZ4 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0))) { stanLCD = 3; stan1 = 1; stan2 = 1; tim4 = 5 * sek; blokada8 = 1; przyciskniedostepny8 = 1; }
 		else if ((aK8 && !pK8 && ((liczZ3 > 0 && liczZ4 > 0) && liczZ1 == 0 && liczZ2 == 0 && liczZ5 == 0 && liczZ6 == 0 && liczZ7 == 0))) { stanLCD = 3; stan3 = 1; tim4 = 5 * sek; blokada8 = 1; przyciskniedostepny8 = 1; }
@@ -543,8 +550,6 @@ void H(void)
 
 		if (liczZ5 > 0) { if (pX9 && !X9)--liczZ5; }
 		if (liczZ6 > 0) { if (pX12 && !X12)--liczZ6; }
-
-
 
 		if (!tim3 || !tim2) { stanA2 = 7; tim2 = Tprzerwa; }break;
 
