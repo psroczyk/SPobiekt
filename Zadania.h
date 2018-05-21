@@ -401,10 +401,10 @@ void H(void)
 		wsp2 = liczA2Z3 / T4;
 		wsp3 = (liczA2Z5) / T6;
 		wsp4 = (liczA2Z7) / T8;
-		if (((wsp3) > (wsp4)) && T6 >= 2 * sek&&T6 <= 12 * sek) { T6 = T6 + 4 * sek; if (T8 > 0 * sek&&T8 < 15 * sek) { T8 = T8 - 4 * sek; } }
-		if (((wsp3) < (wsp4)) && T8 >= 4 * sek&&T8 <= 12 * sek) { T8 = T8 + 4 * sek; if (T6 > 0 * sek&&T6 < 15 * sek) { T6 = T6 - 4 * sek; } }
-		if (((wsp1) > (wsp2)) && T2 >= 2 * sek&&T2 <= 12 * sek) { T2 = T2 + 4 * sek; if (T4 > 0 * sek&&T4 < 15 * sek) { T4 = T4 - 4 * sek; } }
-		if (((wsp1) < (wsp2)) && T4 >= 2 * sek&&T4 <= 12 * sek) { T4 = T4 + 4 * sek; if (T2 > 0 * sek&&T2 < 15 * sek) { T2 = T2 - 4 * sek; } }
+		if (((wsp3) > (wsp4)) && T6 >= 2 * sek&&T6 <= 12 * sek) { T6 = T6 + 3 * sek; if (T8 > 0 * sek&&T8 < 15 * sek) { T8 = T8 - 3 * sek; } }
+		if (((wsp3) < (wsp4)) && T8 >= 4 * sek&&T8 <= 12 * sek) { T8 = T8 + 3* sek; if (T6 > 0 * sek&&T6 < 15 * sek) { T6 = T6 - 3 * sek; } }
+		if (((wsp1) > (wsp2)) && T2 >= 2 * sek&&T2 <= 12 * sek) { T2 = T2 + 3 * sek; if (T4 > 0 * sek&&T4 < 15 * sek) { T4 = T4 - 3 * sek; } }
+		if (((wsp1) < (wsp2)) && T4 >= 2 * sek&&T4 <= 12 * sek) { T4 = T4 + 3 * sek; if (T2 > 0 * sek&&T2 < 15 * sek) { T2 = T2 - 3 * sek; } }
 		liczA2Z1 = 0; liczA2Z3 = 0; liczA2Z5 = 0; liczA2Z7 = 0;
 		if (!tim2&&liczZ7 == 0 && liczZ8 == 0) { stanA2 = 2; tim2 = T2; tim3 = T1; }
 		break;
